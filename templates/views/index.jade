@@ -1,0 +1,100 @@
+extends ../layouts/default
+
+block content
+  .container: .jumbotron
+    img(src='/images/logo.svg', width='160')
+    h2 Increva-se no evento COMICON 2016 :)
+
+    hr
+
+    if enquirySubmitted
+      h3 Baixe nosso aplicativo e utilize o código 
+    else
+      .row
+        .col-md-6
+          form(method='post', action="/inscrever")
+            input(type='hidden', name='action', value='contact')
+            .form-group()
+              label Nome
+              input(type='text', name='name',).form-control
+            .form-group()
+              label Email
+              input(type='email', name='email').form-control
+            .form-group()
+              label Seu linkedin (Você pode fazer login direto com ele :) ) 
+              input(type='email', name='email').form-control
+            .form-group
+              label Telefone
+              input(type='text', name='phone').form-control
+            .form-group
+              label Empresa
+              input(type='text', name='company.name').form-control
+            .form-group()
+              label Setor
+              input(type='text', name='company.area').form-control
+            .form-group()
+              label Site empresa
+              input(type='text', name='company.area').form-control
+            .form-group()
+              label Linkedin empresa
+              input(type='text', name='company.area').form-control
+            .form-group()
+              label Facebook empresa
+              input(type='text', name='company.area').form-control
+
+          
+
+
+        .col-md-6
+          .form-group
+            .panel.panel-default.credit-card-box
+              .panel-heading.display-table
+                .row.display-tr
+                  //- h3.panel-title.display-td Detalhes de pagamento
+                  .display-td
+                    img.img-responsive.pull-right(src='http://i76.imgup.net/accepted_c22e0.png')
+              .panel-body
+                .row
+                  .col-xs-12
+                    .form-group
+                      label(for='cardNumber') Número do cartão
+                      .input-group
+                        input.form-control(type='tel', name='cardNumber', placeholder='Valid Card Number', autocomplete='cc-number', required='', autofocus='')
+                        span.input-group-addon
+                          i.fa.fa-credit-card
+                .row
+                  .col-xs-7.col-md-7
+                    .form-group
+                      label(for='cardExpiry')
+                        span.hidden-xs Expira em:
+                      input.form-control(type='tel', name='cardExpiry', placeholder='MM / YY', autocomplete='cc-exp', required='')
+                  .col-xs-5.col-md-5.pull-right
+                    .form-group
+                      label(for='cardCVC') CVV
+                      input.form-control(type='tel', name='cardCVC', placeholder='CVC', autocomplete='cc-csc', required='')
+                .row
+                  .col-xs-12
+                    .form-group
+                      label(for='couponCode') Cupom de promoção
+                      input.form-control(type='text', name='couponCode')
+                
+
+        .row
+          .col-md-6
+            button.subscribe.btn.btn-success.btn-lg.btn-block(type='submit') Inscrever-se :)
+    //- p It includes the latest versions of
+    //-   | <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
+    //-   | and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
+    //- p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
+    //- hr
+    //- if user && user.canAccessKeystone
+    //-   p
+    //-     a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
+    //- else
+    //-   p We have created a default Admin user for you with the email <strong>victorkurauchi@gmail.com</strong> and the password <strong>admin</strong>.
+    //-   p
+    //-     a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
+    //-     |  to use the Admin UI.
+    //- hr
+    //- p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
+    //-   | <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
